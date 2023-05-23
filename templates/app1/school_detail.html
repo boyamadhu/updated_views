@@ -1,0 +1,32 @@
+{% extends 'app1/dummy.html' %}
+
+{% block title %}
+    <title>Home Page</title>
+{% endblock %}
+
+{% block body_block  %}
+<center>
+    <h1>Welcome To Detail Page</h1>
+    <h3>Name of School {{DO.name}}</h3>
+    <h3>Name of prinicipal is {{DO.prinicipal}}</h3>
+    <h3>Location is {{DO.location}}</h3>
+
+    <h2>Students in {{DO.name}} school</h2>
+    <table border="4px">
+        <th>sname</th>
+        <th>sage</th>
+        <th>school</th>
+        {% for i in DO.students.all %}
+            <tr>
+                <td>{{i.sname}}</td>
+                <td>{{i.sage}}</td>
+                <td>{{i.school}}</td>
+            </tr>
+        {% endfor %}
+    </table><br><br>
+    
+    <h4><a href="{% url 'update_view' pk=DO.pk %}" class="btn btn-success">UpdateData</a></h4><br><br>
+    <h4><a href="{% url 'delete_view' pk=DO.pk %}" class="btn btn-danger">DeleteData</a></h4>
+
+</center>
+{% endblock %}

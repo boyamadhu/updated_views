@@ -1,0 +1,23 @@
+{% extends 'app1/dummy.html' %}
+
+{% block title %}
+    <title>Schoolcreate</title>
+{% endblock %}
+
+{% block body_block  %}
+<center>
+    <h1>Schoolcreate Form</h1>
+ <form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    
+    {% if form.instance.pk %}
+    <input type="submit" value="Schoolupdate">
+    {% else %}
+    <input type="submit" value="Schoolcreate">
+    {% endif %}
+ </form>
+</center>
+
+{% endblock %}
